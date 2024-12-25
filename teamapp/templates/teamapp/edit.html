@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>    
+    <title>Edit</title>
+    <meta charset="UTF-8"></head>
+  <body>
+    <h1 >Edit flashcard</h1>
+    <form action="{% url 'update' flashcard.id %}" method="post">
+      {% csrf_token %}
+      <div>
+        <label for="titleInput">表面</label>
+        <input id="titleInput" name="title" type="text"
+          placeholder="Input title" value="{{ flashcard.front }}">
+      </div>
+      <div>
+        <label for="titleInput">裏面</label>
+        <input id="titleInput" name="title" type="text"
+          placeholder="Input title" value="{{ flashcard.back }}">
+      </div>
+      <div>
+        <label for="textInput">メモ</label>
+        <textarea id="textInput" name="text" rows="3"> {{ flashcard.memo }}</textarea>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <p>
+      <a href="{% url 'detail' flashcard.id %}">Back</a>
+    </p>
+  </body>
+</html>

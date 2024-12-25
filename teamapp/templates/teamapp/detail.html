@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>    
+    <title>Detail</title>
+    <meta charset="UTF-8"></head>
+  <body>
+    <h2>{{ flashcard.front }} - {{ flashcard.back }}</h2>
+    <small>Posted at: {{ flashcard.updated_at }}</small>
+    <div>
+      {{ flashcard.memo | linebreaksbr }}
+    </div>
+    <hr>
+    <p>
+      <a href="{% url 'index' %}">Top</a> |
+      <a href="{% url 'update' flashcard.id %}">Edit</a> |
+      <a href="{% url 'delete' flashcard.id %}">Delete</a>
+    </p>
+  </body>
+</html>
+
+

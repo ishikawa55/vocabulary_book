@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'teamapp/css/create_flashcard.css' %}" rel="stylesheet">
+    <title>単語カード作成</title>
+</head>
+<body>
+    <div class="side-curtain left-curtain"></div>
+    <div class="container">
+        <h1 class="title">単語カードを作成</h1>
+        <form method="post" class="form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="form-button">保存</button>
+        </form>
+        <div class="menu">
+             <a href="{% url 'flashcard_list' %}" class="menu-item">単語カード一覧</a>
+             <a href="{% url 'index' %}" class="menu-item">Top</a>
+        </div>
+    </div>
+    <div class="side-curtain right-curtain"></div>
+</body>
+</html>
+

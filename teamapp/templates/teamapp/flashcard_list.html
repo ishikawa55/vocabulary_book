@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'teamapp/css/flashcard_list.css' %}" rel="stylesheet">
+    <title>単語カード一覧</title>
+</head>
+<body>
+    <div class="side-curtain left-curtain"></div>
+    <div class="container">
+        <h1 class="title">単語カード一覧</h1>
+        <ul class="flashcard-list">
+            {% if flashcards %}
+                {% for flashcard in flashcards %}
+                    <li class="flashcard-item">
+                        <a href="{% url 'detail' flashcard.id %}" class="flashcard-link">
+                            <span class="flashcard-text">{{ flashcard.front }} - {{ flashcard.back }}</span>
+                        </a>
+                        <small class="flashcard-date">[{{ flashcard.updated_at }}]</small>
+                         <div class="flashcard-memo">
+                            {{ flashcard.memo | linebreaksbr }}
+                         </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>No flashcard.</p>
+            {% endif %}
+        </ul>
+        <h2 class="title">フォルダ</h2>
+        <ul>
+            {% for folder in folders %}
+                <li><a href="{% url 'folder_cards' folder.id %}">{{ folder.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <h2 class="title">フォルダに属さないカード</h2>
+        <ul>
+            {% for flashcard in flashcards %}
+                <li>{{ flashcard.front }} - {{ flashcard.back }}</li>
+            {% endfor %}
+        </ul>
+        <div class="menu">
+            <a href="{% url 'create_flashcard' %}" class="menu-item">新しい単語カードを作成</a>
+            <a href="{% url 'create_folder' %}" class="menu-item">新しいフォルダを作成</a>
+            <a href="{% url 'index' %}" class="menu-item">Top</a>
+        </div>
+    </div>
+    <div class="side-curtain right-curtain"></div>
+</body>
+</html>

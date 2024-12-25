@@ -1,0 +1,7 @@
+<h1>新しいフォルダを作成</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">作成</button>
+</form>
+<a href="{% url 'flashcard_list' %}">単語カード一覧に戻る</a>

@@ -1,0 +1,165 @@
+/* リセットCSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ここからカスタムスタイル */
+body {
+    font-family: Arial, Meiryo, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center; /* 水平方向中央寄せ */
+    align-items: center; /* 垂直方向中央寄せ */
+    min-height: 100vh;
+    overflow-x: hidden; /* 横スクロールを防止 */
+}
+
+.side-curtain {
+    position: fixed;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: -1; /* 他の要素の背面に配置 */
+}
+
+.left-curtain {
+    left: 0;
+    background-color: #3498db; /* 左側の幕の色 */
+}
+
+.right-curtain {
+    right: 0;
+    background-color: #3498db; /* 右側の幕の色 */
+}
+
+.container {
+    text-align: center; /* テキストを中央寄せ */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 600px; /* コンテナの最大幅を広げる */
+    width: 80%; /* コンテナの幅を調整 */
+    z-index: 1; /* 幕よりも手前に表示 */
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 30px; /* ボタンのサイズを大きく */
+    margin: 15px 0; /* マージンを大きく */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 1.3em; /* フォントサイズを大きく */
+    text-align: center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.menu-item:hover {
+    background-color: #2980b9;
+}
+
+.menu-icon {
+    margin-right: 10px;
+    font-size: 1.6em; /* アイコンのサイズを大きく */
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .side-curtain {
+        width: 10%; /* 画面幅が小さい時は幕を細く */
+    }
+
+    .container {
+        width: 95%; /* コンテナの幅を調整 */
+    }
+    
+    .menu-item {
+        font-size: 1.2em;
+        padding: 15px 25px;
+        margin: 10px 0;
+    }
+
+    .menu-icon {
+      font-size: 1.4em;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    .title {
+        font-size: 2em;
+    }
+    .menu-item {
+        font-size: 1em;
+        padding: 12px 16px;
+        margin: 8px 0;
+    }
+    .menu-icon{
+        font-size: 1.2em;
+    }
+}

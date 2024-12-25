@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'teamapp/css/flashcard_quiz.css' %}" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="quiz-card" onclick="this.classList.toggle('flipped')">
+        <div class="quiz-card-inner">
+            <div class="quiz-card-front">
+                <p>{{ flashcard.front }}</p>
+            </div>
+            <div class="quiz-card-back">
+                <p>{{ flashcard.back }}</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'teamapp/js/flashcard_quiz.js' %}" ></script>
+    <p>
+        <a href="{% url 'index' %}">Top</a>
+        <a href="{% url 'flashcard_quiz' next %}">Next</a>
+    </p>
+</body>
+</html>
+
